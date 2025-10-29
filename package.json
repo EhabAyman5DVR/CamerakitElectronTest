@@ -33,21 +33,24 @@
   },
   "build": {
     "appId": "com.camerakit.app",
-    "productName": "CameraKit Web App",
+    "productName": "5DVR cameraKit App",
     "asar": true,
     "files": [
       "dist/**",
       "electron/**",
-      "package.json"
+      "package.json",
+      "build/**"
     ],
     "directories": {
       "output": "release"
     },
+    "icon": "build/icon.ico",
     "win": {
       "target": [
         "nsis"
       ],
-      "artifactName": "${productName} Setup ${version}.${ext}"
+      "artifactName": "${productName} Setup ${version}.${ext}",
+      "icon": "build/icon.ico"
     },
     "nsis": {
       "oneClick": false,

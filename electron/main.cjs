@@ -12,6 +12,7 @@ function createMainWindow() {
 	mainWindow = new BrowserWindow({
 		width: 1200,
 		height: 800,
+		icon: path.join(__dirname, '..', 'build', 'icon.ico'),
 		webPreferences: {
 			preload: path.join(__dirname, 'preload.cjs'),
 			// Keep web security enabled; we proxy where needed
