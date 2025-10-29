@@ -1,5 +1,8 @@
 import { defineConfig } from 'vite';
 
-export default defineConfig({
-    base: '/CameraKitTemplate/', // Replace with your actual GitHub repo name
+export default defineConfig(({ mode }) => {
+	const isElectron = mode === 'electron' || process.env.BUILD_TARGET === 'electron';
+	return {
+		base: isElectron ? './' : '/CameraKitElectronTest/',
+	};
 });
