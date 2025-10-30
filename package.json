@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist",
     "electron:dev": "cross-env BUILD_TARGET=electron concurrently \"vite --mode electron\" \"wait-on http://localhost:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .\"",
     "electron:build": "cross-env BUILD_TARGET=electron vite build && electron-builder -w",
+    "electron:build:mac": "cross-env BUILD_TARGET=electron vite build && electron-builder --mac",
     "postinstall": "electron-builder install-app-deps"
   },
   "devDependencies": {
@@ -51,6 +52,13 @@
       ],
       "artifactName": "${productName} Setup ${version}.${ext}",
       "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "category": "public.app-category.utilities"
     },
     "nsis": {
       "oneClick": false,
