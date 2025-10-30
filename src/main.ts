@@ -14,6 +14,8 @@ let captureBtn: HTMLButtonElement;
 let capturedImageData: string | null = null;
 let downloadImageBtn: HTMLButtonElement;
 let closePreviewBtn: HTMLButtonElement;
+let printImageBtn: HTMLButtonElement;
+
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Initialize Camera Kit
@@ -50,10 +52,12 @@ function setupCaptureUI() {
   captureBtn = document.getElementById('capture-btn') as HTMLButtonElement;
   downloadImageBtn = document.getElementById('download-btn') as HTMLButtonElement;
   closePreviewBtn = document.getElementById('close-btn') as HTMLButtonElement;
+  printImageBtn = document.getElementById('print-btn') as HTMLButtonElement;
   captureBtn.style.display = 'flex';
   captureBtn.addEventListener('click', capturePhoto);
   closePreviewBtn.addEventListener('click', ClosePreview);
   downloadImageBtn.addEventListener('click', DownloadImage);
+  printImageBtn.addEventListener('click', PrintImage);
 }
 
 
@@ -126,6 +130,7 @@ function capturePhoto() {
     if (captureBtn) captureBtn.style.display = 'none';
     if (downloadImageBtn) downloadImageBtn.style.display = 'flex';
     if (closePreviewBtn) closePreviewBtn.style.display = 'flex';
+    if (printImageBtn) printImageBtn.style.display = 'flex';
 
   } catch (error) {
     console.error('Failed to capture photo:', error);
@@ -150,7 +155,8 @@ function ClosePreview() {
 
   if (downloadImageBtn) downloadImageBtn.style.display = 'none';
   if (closePreviewBtn) closePreviewBtn.style.display = 'none';
-  ``
+  if (printImageBtn) printImageBtn.style.display = 'none';
+
   // Show capture button again
   if (captureBtn) captureBtn.style.display = 'flex';
 }
@@ -164,4 +170,7 @@ if (capturedImageData) {
     a.click();
     document.body.removeChild(a);
   }
+}
+function PrintImage() {
+
 }
